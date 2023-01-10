@@ -20,7 +20,7 @@ async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Welcome to VRP-api!")
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Deserialize)]
 struct SolverRequest {
     uuid: String,
     problem: Problem,
