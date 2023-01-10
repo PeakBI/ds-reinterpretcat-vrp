@@ -8,7 +8,7 @@ mod config_test;
 
 extern crate serde_json;
 
-use serde::Deserialize;
+use serde::{Deserialize};
 use std::io::{BufReader, Read};
 use std::sync::Arc;
 use vrp_core::construction::heuristics::InsertionContext;
