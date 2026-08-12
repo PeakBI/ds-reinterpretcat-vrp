@@ -8,30 +8,30 @@ on:
 
 jobs:
   measure-test-coverage:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
 
       - name: Install stable toolchain
-        uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f  # v1.0.6
         with:
           toolchain: stable
           override: true
 
       - name: Run cargo-tarpaulin
-        uses: actions-rs/tarpaulin@v0.1
+        uses: actions-rs/tarpaulin@044a1e5bdace8dd2f727b1af63c1d9a1d3572068  # v0.1
         with:
           version: '0.19.1'
           args: '--exclude-files *_test.rs *tests* *experiments*'
 
       - name: Upload to codecov.io
-        uses: codecov/codecov-action@v1.0.2
+        uses: codecov/codecov-action@cb218a0977f94755cee8a27ab63232797780f625  # v1.0.2
         with:
           token: ${{secrets.CODECOV_TOKEN}}
 
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@3446296876d12d4e3a0f3145a3c87e67bf0a16b5  # v1.0.0
         with:
           name: code-coverage-report
           path: cobertura.xml
