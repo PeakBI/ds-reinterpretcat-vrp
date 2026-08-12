@@ -7,9 +7,9 @@ on:
       - '**/Cargo.lock'
 jobs:
   security-audit:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions-rs/audit-check@v1
+      - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819  # v1.0.0
+      - uses: actions-rs/audit-check@35b7b53b1e25b55642157ac01b4adceb5b9ebef3  # v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

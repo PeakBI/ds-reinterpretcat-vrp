@@ -10,11 +10,11 @@ on:
 
 jobs:
   discovery-tests:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     timeout-minutes: 360
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
         with:
           ref: ${{ github.event.inputs.branch }}
 

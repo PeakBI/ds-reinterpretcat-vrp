@@ -13,44 +13,44 @@ on:
 
 jobs:
   collect-metrics:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     if: ${{ github.event.inputs.job == 'collect-metrics' }}
     timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
+      - uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2.3.4
         with:
           python-version: 3.8
 
-      - uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f  # v1.0.6
         with:
           toolchain: stable
       -  run: python ./experiments/etc/collect-metrics.py ${{ github.event.inputs.config_url }}
 
       - name: Upload Results artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2  # v2.3.1
         with:
           name: experiments-results.csv
           path: experiments/etc/collect-metrics-results.csv
 
 
   bench-scientific:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     if: ${{ github.event.inputs.job == 'bench-scientific' }}
     timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
+      - uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2.3.4
         with:
           python-version: 3.8
 
-      - uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f  # v1.0.6
         with:
           toolchain: stable
       - run: python ./experiments/etc/bench-scientific.py ${{ github.event.inputs.config_url }}
 
       - name: Upload Results artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2  # v2.3.1
         with:
           name: bench-results
           path: experiments/etc/results

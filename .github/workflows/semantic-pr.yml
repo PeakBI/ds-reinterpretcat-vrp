@@ -5,6 +5,6 @@ on:
 
 jobs:
   main:
-    uses: peak-platform/.github/.github/workflows/semantic-pr.yml@main
+    uses: peak-platform/.github/.github/workflows/semantic-pr.yml@c4dfc821563871a9112b31b164161bc4a76eb24b  # main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

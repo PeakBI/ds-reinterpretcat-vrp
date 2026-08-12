@@ -8,34 +8,34 @@ on:
 
 jobs:
   test-build:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
 
     - name: Build and run tests
       run: cargo test --verbose
 
     - name: Run clippy
-      uses: actions-rs/cargo@v1
+      uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b  # v1.0.1
       with:
         command: clippy
         args: --all-features --tests -- -D warnings
 
   release-build:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
 
     - name: Release build
       run: cargo build --release --verbose
 
   wasm-build:
-    runs-on: ubuntu-latest
+    runs-on: uipath-ubuntu-latest
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e  # v2.8.0
 
     - name: Build WebAssembly
       run: |
@@ -44,7 +44,7 @@ jobs:
         wasm-pack build --target web
 
     - name: Upload WebAssembly artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2  # v2.3.1
       with:
         name: vrp_cli_wasm
         path: vrp-cli/pkg/
